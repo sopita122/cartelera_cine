@@ -74,9 +74,9 @@ cartelera_cine/
         └── script.js
 
 # Integrantes
-- Martina Araujo
-- Thiago Goya
-- Sofia Salaberry
+- Martina Araujo.
+- Thiago Goya.
+- Sofia Salaberry.
 
 # Nota
 Este proyecto tiene fines académicos y se encuentra actualmente en desarrollo. La información, funcionalidades y estructura pueden cambiar durante las diferentes etapas de implementación.

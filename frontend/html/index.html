@@ -1,65 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <title>Lumenova Cinema</title>
+    <link rel="icon" type="image/png" href="../img/logo/lumenova.png">
 </head>
 <body>
     <header>
-        <nav class="" id="nav">
-            <a href="#inicio" >Inicio</a>
-            <a href="#Cartelera">Cartelera</a>
-            <a href="#estrenos">estrenos</a>
-            <a href="promos">Promos</a>
-            <a href="#Contacto" >Contacto</a>
+        <nav id="nav">
+            <a href="#inicio">Inicio</a>
+            <a href="#cartelera">Cartelera</a>
+            <a href="#estrenos">Estrenos</a>
+            <a href="#promos">Promos</a>
+            <a href="#contacto">Contacto</a>
         </nav>
     </header>
+
     <main>
-        <section id="inicio">
+        <section id="inicio" class="hero">
             <h1>Lumenova Cinema</h1>
             <p>Disfruta de la mejor experiencia cinematográfica en nuestra sala de cine.</p>
         </section>
 
-        <section >
-            <div class="carrusel">
-                <img src="../img/carrusel de imagenes/backrooms.jpeg" alt="imagen 1">
-                <img src="../img/carrusel de imagenes/deadpool.jpeg" alt="imagen 2">
-                <img src="../img/carrusel de imagenes/joker.jpg" alt="imagen 3">
-                <img src="../img/carrusel de imagenes/spider-man home coming.jpeg" alt="imagen 4">
-                <img src="../img/carrusel de imagenes/Squid Games 2 Kdrama Poster.jpeg" alt="imagen 5">
-                <img src="../img/carrusel de imagenes/The Boys Wallpaper.jpeg" alt="imagen 6">
-                <img src="../img/carrusel de imagenes/the texas chainsaw massacre.jpeg" alt="imagen 7">
-                <img src="../img/carrusel de imagenes/zootopia 2.jpeg" alt="imagen 8">    
-            </div>
-            <div id="Cartelera">
+        <section id="cartelera" class="seccion-cartelera">
+            <div class="carrusel-contenedor" aria-label="Carrusel de imágenes de películas">
+                <button class="carrusel-btn anterior" type="button" aria-label="Anterior" onclick="cambiarImagen(-1)">&#10094;</button>
 
+                <div class="carrusel-imagenes">
+                    <img class="carrusel-slide activa" src="../img/carrusel de imagenes/backrooms.jpeg" alt="Imagen 1">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/deadpool.jpeg" alt="Imagen 2">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/Squid Games 2 Kdrama Poster.jpeg" alt="Imagen 3">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/spider-man home coming.jpeg" alt="Imagen 4">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/Squid Games 2 Kdrama Poster.jpeg" alt="Imagen 5">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/The Boys Wallpaper.jpeg" alt="Imagen 6">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/the texas chainsaw massacre.jpeg" alt="Imagen 7">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/zootopia 2.jpeg" alt="Imagen 8">
+                </div>
+
+                <div class="carrusel-puntos" aria-label="Indicadores del carrusel">
+                    <button class="carrusel-punto activo" type="button" data-index="0" aria-label="Ir a la imagen 1"></button>
+                    <button class="carrusel-punto" type="button" data-index="1" aria-label="Ir a la imagen 2"></button>
+                    <button class="carrusel-punto" type="button" data-index="2" aria-label="Ir a la imagen 3"></button>
+                    <button class="carrusel-punto" type="button" data-index="3" aria-label="Ir a la imagen 4"></button>
+                    <button class="carrusel-punto" type="button" data-index="4" aria-label="Ir a la imagen 5"></button>
+                    <button class="carrusel-punto" type="button" data-index="5" aria-label="Ir a la imagen 6"></button>
+                    <button class="carrusel-punto" type="button" data-index="6" aria-label="Ir a la imagen 7"></button>
+                    <button class="carrusel-punto" type="button" data-index="7" aria-label="Ir a la imagen 8"></button>
+                </div>
+                <button class="carrusel-btn siguiente" type="button" aria-label="Siguiente" onclick="cambiarImagen(1)">&#10095;</button>
             </div>
-            
+
+            <div class="peliculas-container">
+                <h2>Películas en cartelera</h2>
+                <div class="peliculas-grid">
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/edward scisssorhands.jpeg" alt="edward scisssorhands">
+                        <div class="pelicula-info">
+                            <h3>edward scisssorhands</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/frankenweenie.jpeg" alt="frankenweenie">
+                        <div class="pelicula-info">
+                            <h3>frankenweenie</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/La verdad del mal.jpeg" alt="La verdad del mal">
+                        <div class="pelicula-info">
+                            <h3>La verdad del mal</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/look back movie poster.jpeg" alt="look back movie">
+                        <div class="pelicula-info">
+                            <h3>look back movie</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/masacre en texas.jpeg" alt="masacre en texas">
+                        <div class="pelicula-info">
+                            <h3>masacre en texas</h3>
+                            <p></p>
+                        </div>
+                    </article><article class="pelicula-card">
+                        <img src="../img/peliculas/Paprika.jpeg" alt="Paprika">
+                        <div class="pelicula-info">
+                            <h3>Paprika</h3>
+                            <p></p>
+                        </div>
+                    </article><article class="pelicula-card">
+                        <img src="../img/peliculas/siempre a tu lado.jpeg" alt="siempre a tu lado">
+                        <div class="pelicula-info">
+                            <h3>siempre a tu lado</h3>
+                            <p></p>
+                        </div>
+                    </article><article class="pelicula-card">
+                        <img src="../img/peliculas/Superpoli de centro comercial (2009) - tt1114740.jpeg" alt="Superpoli de centro comercial">
+                        <div class="pelicula-info">
+                            <h3>Superpoli de centro comercial</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
-   
-<div class="carrusel-contenedor">
-    <button class="carrusel-btn anterior" onclick="cambiarImagen(-1)">&#10094;</button>
-    
-    <div class="carrusel-imagenes">
-        <img class="carrusel-slide activa" src="../img/carrusel de imagenes/backrooms.jpeg" alt="Imagen 1">
-        <img class="carrusel-slide" src="../img/carrusel de imagenes/deadpool.jpeg" alt="Imagen 2">
-        <img class="carrusel-slide" src="../img/carrusel de imagenes/Squid Games 2 Kdrama Poster.jpeg" alt="Imagen 3">
-        <img src="../img/carrusel de imagenes/spider-man home coming.jpeg" alt="imagen 4">
-        <img src="../img/carrusel de imagenes/Squid Games 2 Kdrama Poster.jpeg" alt="imagen 5">
-        <img src="../img/carrusel de imagenes/The Boys Wallpaper.jpeg" alt="imagen 6">
-        <img src="../img/carrusel de imagenes/the texas chainsaw massacre.jpeg" alt="imagen 7">
-        <img src="../img/carrusel de imagenes/zootopia 2.jpeg" alt="imagen 8">
-    </div>
-    
-    <button class="carrusel-btn siguiente" onclick="cambiarImagen(1)">&#10095;</button>
-</div>
-
+        <section id="estrenos" class="contenido-seccion">
+            <h2>Estrenos</h2>
+            <p></p>
+        </section>
+        <section id="promos" class="contenido-seccion">
+            <h2>Promociones</h2>
+            <p></p>
+        </section>
+        <section id="contacto" class="contenido-seccion">
+            <h2>Contacto</h2>
+            <p></p>
+        </section>
     </main>
     <footer>
 
     </footer>
     <script src="../js/script.js"></script>
-    </body>
-    </html>
+</body>
+</html>
