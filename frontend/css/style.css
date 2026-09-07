@@ -206,3 +206,34 @@ main {
     line-height: 1.5;
 }
 
+.btn {
+  background-color: #063c75;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+
+.content {
+    max-height: 2000px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.content.oculto {
+  max-height: 0;
+  opacity: 0;
+}
+
+.expand-container{
+    margin: 30px auto;
+    display: grid;
+    place-items: center;
+
+}
+

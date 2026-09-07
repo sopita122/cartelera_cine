@@ -74,3 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     iniciarCarruselAutomatico();
 });
+
+const boton = document.getElementById('expand-btn');
+const contenido = document.getElementById('expand-content');
+
+if (boton && contenido) {
+        boton.addEventListener('click', () => {
+                contenido.classList.toggle('oculto');
+                boton.textContent = contenido.classList.contains('oculto')
+                        ? 'Mostrar más'
+                        : 'Mostrar menos';
+        });
+}
