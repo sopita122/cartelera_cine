@@ -51,6 +51,7 @@ Algunas de estas ideas pueden ser modificadas o directamente no se implementen e
 La base de datos será utilizada para almacenar y gestionar la información necesaria para el funcionamiento de la plataforma, como películas, usuarios, funciones y otros elementos relacionados con el sistema.
 
 # Estructura del proyecto
+<pre>
 cartelera_cine/
 │
 ├── doc/
@@ -72,7 +73,7 @@ cartelera_cine/
     │
     └── js/
         └── script.js
-
+</pre>
 # Integrantes
 - Martina Araujo.
 - Thiago Goya.
