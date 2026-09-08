@@ -21,8 +21,8 @@ header {
 #nav {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 1rem 1.25rem;
+    gap: 4.5rem;
+    padding: 1.5rem 1.2rem;
     flex-wrap: wrap;
 }
 
@@ -31,6 +31,7 @@ header {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s ease;
+    font-size: 1.3rem;
 }
 
 #nav a:hover {
@@ -207,27 +208,32 @@ main {
 }
 
 .btn {
-  background-color: #063c75;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
+    background-color: #063c75;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 
+}
+
+.btn:hover {
+    background-color: #1f65af;
+    transform: translateY(-1px);
 }
 
 .content {
     max-height: 2000px;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-  opacity: 1;
-  margin-top: 10px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 1;
+    margin-top: 10px;
 }
 
 .content.oculto {
-  max-height: 0;
-  opacity: 0;
+    max-height: 0;
+    opacity: 0;
 }
 
 .expand-container{
@@ -236,4 +242,27 @@ main {
     place-items: center;
 
 }
+
+
+.estreno-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+
+.estreno-card{
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 14px;
+    overflow: hidden;
+
+}
+
+
+
+
+
+
+
 
