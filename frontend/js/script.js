@@ -61,6 +61,20 @@ function iniciarCarruselAutomatico() {
     });
 }
 
+function inicializarPeliculasExtra() {
+    const contenedorExtra = document.querySelector('.peliculas-extra');
+    const botonToggle = document.getElementById('togglePeliculas');
+
+    if (!contenedorExtra || !botonToggle) {
+        return;
+    }
+
+    botonToggle.addEventListener('click', () => {
+        const visible = contenedorExtra.classList.toggle('visible');
+        botonToggle.textContent = visible ? 'Mostrar menos' : 'Mostrar más';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     mostrarImagen(0);
 
@@ -72,17 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    inicializarPeliculasExtra();
     iniciarCarruselAutomatico();
 });
-
-const boton = document.getElementById('expand-btn');
-const contenido = document.getElementById('expand-content');
-
-if (boton && contenido) {
-        boton.addEventListener('click', () => {
-                contenido.classList.toggle('oculto');
-                boton.textContent = contenido.classList.contains('oculto')
-                        ? 'Mostrar más'
-                        : 'Mostrar menos';
-        });
-}

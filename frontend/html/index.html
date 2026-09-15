@@ -9,12 +9,21 @@
 </head>
 <body>
     <header>
-        <nav id="nav">
-            <a href="#inicio">Inicio</a>
-            <a href="#cartelera">Cartelera</a>
-            <a href="#estrenos">Estrenos</a>
-            <a href="#promos">Promos</a>
-            <a href="#contacto">Contacto</a>
+        <div class="site-header">
+            <a class="brand" href="#inicio" aria-label="Lumenova Cinema, inicio">
+                <span class="brand-mark" aria-hidden="true">LC</span>
+                <span class="brand-text">Lumenova<small>CINEMA</small></span>
+            </a>
+            <nav class="main-nav" aria-label="Navegacion principal">
+                <a class="current" href="#inicio">Inicio</a>
+                <a href="#cartelera">Cartelera</a>
+                <a href="#estrenos">Estrenos</a>
+                <a href="#promos">Promos</a>
+                <a href="#contacto">Contacto</a>
+            <div class="botones-cuenta">
+                <button type="button" onclick="location.href='#Iniciar sesión'">Iniciar sesión</button>
+                <button type="button" onclick="location.href='#Registrarse'">Registrarse</button>
+            </div>
         </nav>
     </header>
 
@@ -24,16 +33,15 @@
             <p>Disfruta de la mejor experiencia cinematográfica en nuestra sala de cine.</p>
         </section>
 
-        <section id="cartelera" class="seccion-cartelera">
+        <section class="seccion-cartelera">
             <div class="carrusel-contenedor" aria-label="Carrusel de imágenes de películas">
                 <button class="carrusel-btn anterior" type="button" aria-label="Anterior" onclick="cambiarImagen(-1)">&#10094;</button>
-
                 <div class="carrusel-imagenes">
                     <img class="carrusel-slide activa" src="../img/carrusel de imagenes/backrooms.jpeg" alt="Imagen 1">
                     <img class="carrusel-slide" src="../img/carrusel de imagenes/deadpool.jpeg" alt="Imagen 2">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/Squid Games 2 Kdrama Poster.jpeg" alt="Imagen 3">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/longlegs.jpeg" alt="Imagen 3">
                     <img class="carrusel-slide" src="../img/carrusel de imagenes/spider-man home coming.jpeg" alt="Imagen 4">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/Squid Games 2 Kdrama Poster.jpeg" alt="Imagen 5">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/LaOdisea.jpg" alt="Imagen 5">
                     <img class="carrusel-slide" src="../img/carrusel de imagenes/The Boys Wallpaper.jpeg" alt="Imagen 6">
                     <img class="carrusel-slide" src="../img/carrusel de imagenes/the texas chainsaw massacre.jpeg" alt="Imagen 7">
                     <img class="carrusel-slide" src="../img/carrusel de imagenes/zootopia 2.jpeg" alt="Imagen 8">
@@ -51,21 +59,21 @@
                 </div>
                 <button class="carrusel-btn siguiente" type="button" aria-label="Siguiente" onclick="cambiarImagen(1)">&#10095;</button>
             </div>
-
+            <div id="cartelera"></div><br>
             <div class="peliculas-container">
                 <h2>Películas en cartelera</h2>
                 <div class="peliculas-grid">
                     <article class="pelicula-card">
                         <img src="../img/peliculas/edward scisssorhands.jpeg" alt="edward scisssorhands">
                         <div class="pelicula-info">
-                            <h3>Edward scisssorhands</h3>
+                            <h3>edward scisssorhands</h3>
                             <p></p>
                         </div>
                     </article>
                     <article class="pelicula-card">
                         <img src="../img/peliculas/frankenweenie.jpeg" alt="frankenweenie">
                         <div class="pelicula-info">
-                            <h3>Frankenweenie</h3>
+                            <h3>frankenweenie</h3>
                             <p></p>
                         </div>
                     </article>
@@ -77,16 +85,16 @@
                         </div>
                     </article>
                     <article class="pelicula-card">
-                        <img src="../img/peliculas/look back movie poster.jpeg" alt="look back movie">
+                        <img src="../img/peliculas/marvel_com.jpeg" alt="Avengers infinity war">
                         <div class="pelicula-info">
-                            <h3>Look back movie</h3>
+                            <h3> Avengers infinity war </h3>
                             <p></p>
                         </div>
                     </article>
                     <article class="pelicula-card">
                         <img src="../img/peliculas/masacre en texas.jpeg" alt="masacre en texas">
                         <div class="pelicula-info">
-                            <h3>Masacre en texas</h3>
+                            <h3>masacre en texas</h3>
                             <p></p>
                         </div>
                     </article>
@@ -98,9 +106,9 @@
                         </div>
                     </article>
                     <article class="pelicula-card">
-                        <img src="../img/peliculas/siempre  a tu lado.jpeg" alt="siempre a tu lado">
+                        <img src="../img/peliculas/Piratas del Caribe_ La maldición de la Perla Negra  (2003).jpeg" alt="Piratas del caribe">
                         <div class="pelicula-info">
-                            <h3>Siempre a tu lado</h3>
+                            <h3>Piratas del caribe</h3>
                             <p></p>
                         </div>
                     </article>
@@ -112,60 +120,81 @@
                         </div>
                     </article>
                 </div>
-                <div id="expand-content" class="content oculto">
-                    <div class="peliculas-grid">
-                        <article class="pelicula-card">
-                            <img src="../img/peliculas/Superpoli de centro comercial (2009) - tt1114740.jpeg" alt="Robot Salvaje">
-                            <div class="pelicula-info">
-                                <h3>Robot Salvaje</h3>
-                                <p></p>
-                            </div>
-                        </article>
-                        <article class="pelicula-card">
-                            <img src="../img/peliculas/" alt="Obsesion">
-                            <div class="pelicula-info">
-                                <h3>Obsesion</h3>
-                                <p></p>
-                            </div>
-                        </article>
-                        <article class="pelicula-card">
-                            <img src="../img/peliculas/" alt="Michael Jackson">
-                            <div class="pelicula-info">
-                                <h3>Michael Jackson</h3>
-                                <p></p>
-                            </div>
-                        </article>
-                        <article class="pelicula-card">
-                            <img src="../img/peliculas/" alt="Friday the 13th">
-                            <div class="pelicula-info">
-                                <h3>Friday the 13th</h3>
-                                <p></p>
-                            </div>
-                        </article>
-                    </div>
+
+                <div class="peliculas-grid peliculas-extra oculto">
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/Robot Salvaje.jpeg" alt="Robot Salvaje">
+                        <div class="pelicula-info">
+                            <h3>Robot Salvaje</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/obsesion.jpeg" alt="Obsesión">
+                        <div class="pelicula-info">
+                            <h3>Obsesión</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/Michael (2026).jpeg" alt="Michael Jackson">
+                        <div class="pelicula-info">
+                            <h3>Michael Jackson</h3>
+                            <p></p>
+                        </div>
+                    </article>
+                    <article class="pelicula-card">
+                        <img src="../img/peliculas/viernes 13th.jpeg" alt="viernes 13th">
+                        <div class="pelicula-info">
+                            <h3>viernes 13</h3>
+                            <p></p>
+                        </div>
+                    </article>
                 </div>
-                    <div class="expand-container">
-                        <button id="expand-btn" class="btn" type="button">Mostrar más</button>
-                    </div>
+
+                <div class="expand-container">
+                    <button type="button" class="btn-toggle" id="togglePeliculas">Mostrar más</button>
+                </div>
             </div>
         </section>
         <section id="estrenos" class="contenido-seccion">
             <h2>Estrenos</h2>
             <p></p>
-
         </section>
-        <section id="promos" class="contenido-seccion">
-            <h2>Promociones</h2>
-            <p></p>
+        <hr>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a class="footer-logo" href="index.html">Lumenova Cinema</a>
+                <span>Mas que peliculas una nueva experiencia
+                <a class="footer-action" href="#cartelera">Nuestra Cartelera<span aria-hidden="true">→</span></a>
+                
+            </div>
+            <div class="footer-column">
+                <h2><span class="footer-heading-icon icon-clock" aria-hidden="true"></span> Atención</h2>
+                <p>Lunes a viernes<br><strong>09:00 a 23:00 hs</strong></p>
+            </div>
+            <div class="footer-column">
+                <h2><span class="fa fa-user-circle-o" aria-hidden="true"></span> Contactos</h2>
+                <div class="footer-socials">
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../img/logos/Instagram.png" alt=""><span>@LumenovaCinema</span></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../img/logos/facebook.png" alt=""><span>@LumeCine</span></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Mail"><img src="../img/logos/Gmail.png" alt=""><span>LumenovaCines@gmail.com</span></a>
 
-        </section>
-        <section id="contacto" class="contenido-seccion">
-            <h2>Contacto</h2>
-            <p></p>
-        </section>
-    </main>
-    <footer>
-
+                </div>
+            </div>
+            <div class="footer-column footer-links">
+                <h2><span class="footer-heading-icon icon-explore" aria-hidden="true"></span> Explorar</h2>
+                <a href="index.html">Inicio</a>
+                <a href="#cartelera">Cartelera</a>
+                <a href="#estrenos">Estrenos</a>
+                <a href="promociones.html">Promos</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Lumenova Cinemas. Todos los derechos reservados.</span>
+            <span>LumenovaCinemas · Sitio web de entretenimiento</span>
+        </div>
     </footer>
     <script src="../js/script.js"></script>
 </body>
