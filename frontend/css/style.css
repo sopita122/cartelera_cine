@@ -373,7 +373,7 @@ main {
 .footer-logo {
 	color: #fffaf2;
 	display: block;
-	font-family:;
+	font-family: Georgia, serif;
 	font-size: clamp(26px, 3vw, 34px);
 	font-style: italic;
 	letter-spacing: -2px;
