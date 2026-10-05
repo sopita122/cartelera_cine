@@ -61,12 +61,10 @@ button:hover {
     align-items: center;
     border: 2px solid #f5eedd;
     border-radius: 50%;
-    color: #84b3ce;
-    display: flex;
-    font-size: 11px;
-    height: 36px;
-    justify-content: center;
-    width: 36px;
+    display: block;
+    height: 42px;
+    object-fit: cover;
+    width: 42px;
 }
 
 .brand-text {
@@ -122,22 +120,7 @@ main {
     padding-bottom: 3rem;
 }
 
-.hero,.contenido-seccion {
-    padding: 3rem 1rem 1rem;
-    text-align: center;
-}
 
-.hero h1 {
-    margin: 0;
-    font-size: clamp(2rem, 4vw, 4rem);
-}
-
-.hero p {
-    color: #cbd5e1;
-    max-width: 700px;
-    margin: 1rem auto 0;
-    font-size: 1.05rem;
-}
 
 .seccion-cartelera {
     padding-top: 1rem;
@@ -301,7 +284,7 @@ main {
 }
 
 .btn {
-    background-color: #063c75;
+    background-color: #755f06;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -590,3 +573,4 @@ hr {
     width: 100vw;
     margin-left: calc(50% - 50vw);
 }
+

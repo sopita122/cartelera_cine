@@ -1,3 +1,8 @@
+<?php
+session_start();
+$esAdministrador = isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'administrador';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +16,7 @@
     <header>
         <div class="site-header">
             <a class="brand" href="#inicio" aria-label="Lumenova Cinema, inicio">
-                <img class="brand-mark" src="../img/logo/lumenova.png" alt="Logo de Lumenova Cinema" aria-hidden="true">
+                <span class="brand-mark" aria-hidden="true">LC</span>
                 <span class="brand-text">Lumenova<small>CINEMA</small></span>
             </a>
             <nav class="main-nav" aria-label="Navegacion principal">
@@ -20,9 +25,9 @@
                 <a href="#estrenos">Estrenos</a>
                 <a href="#promos">Promos</a>
                 <a href="#contacto">Contacto</a>
-            <div class="botones-cuenta">
-                <button type="button" onclick="location.href='login.html'">Iniciar sesión</button>
-                <button type="button" onclick="location.href='registro.html'">Registrarse</button>
+                <?php if ($esAdministrador): ?>
+                    <a class="enlace-panel" href="administrador.html">Ir al panel</a>
+                <?php endif; ?>
             </div>
         </nav>
     </header>
