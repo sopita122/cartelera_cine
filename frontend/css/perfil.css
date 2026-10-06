@@ -1,0 +1,105 @@
+/* Estilos del botón de perfil y su menú. */
+.profile-menu {
+	margin-left: auto;
+	position: relative;
+}
+
+/* El botón muestra las iniciales como avatar hasta que exista una foto guardada. */
+.profile-button {
+	align-items: center;
+	background: transparent;
+	border: 1px solid #73c4ee;
+	border-radius: 999px;
+	color: #ffffff;
+	cursor: pointer;
+	display: flex;
+	gap: 9px;
+	padding: 5px 12px 5px 6px;
+}
+
+.profile-avatar {
+	align-items: center;
+	background: #65bced;
+	border-radius: 50%;
+	display: flex;
+	font-size: 11px;
+	font-weight: 700;
+	height: 30px;
+	justify-content: center;
+	width: 30px;
+}
+
+.profile-name {
+	font-size: 11px;
+	font-weight: 700;
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+/* El panel queda alineado con el avatar y contiene las acciones de la cuenta. */
+.profile-panel {
+	background: #fffaf2;
+	border: 1px solid rgba(7, 54, 94, .18);
+	border-radius: 10px;
+	box-shadow: 0 12px 24px rgba(10, 30, 45, .24);
+	min-width: 175px;
+	padding: 7px;
+	position: absolute;
+	right: 0;
+	top: calc(100% + 10px);
+	z-index: 80;
+}
+
+.profile-option {
+	background: transparent;
+	border: 0;
+	border-radius: 6px;
+	color: #16587b;
+	cursor: pointer;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	text-align: left;
+	width: 100%;
+}
+
+.profile-option:hover, .profile-option:focus-visible {
+	background: #e8f3f7;
+}
+
+.profile-logout {
+	color: #a1332a;
+}
+
+@media (max-width: 900px) {
+	.profile-menu {
+		margin-left: 10px;
+		width: auto;
+	}
+
+	.profile-button {
+		height: 42px;
+		justify-content: center;
+		padding: 5px;
+		width: 42px;
+	}
+
+	.profile-name {
+		display: none;
+	}
+}
+
+@media (max-width: 720px) {
+	.profile-button {
+		justify-content: center;
+	}
+
+	.profile-panel {
+		position: absolute;
+		right: 0;
+		top: calc(100% + 8px);
+	}
+}

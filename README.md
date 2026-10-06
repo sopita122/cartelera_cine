@@ -58,13 +58,20 @@ cartelera_cine/
 │   ├── .drawio
 │   └── README.md
 │
+├── backend/
+│   ├── conexion.php
+│   ├── login.php
+│   ├── logout.php
+│   ├── procesar.php
+│   └── sesion.php
+│
 └── frontend/
     │
     ├── css/
     │   └── style.css
     │
     ├── html/
-    │   └── index.html
+    │   └── index.php
     │
     ├── img/
     │   ├── carrusel de imagenes/
