@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/sesion.css">
+    <link rel="stylesheet" href="../css/style.css?v=202610091810">
+    <link rel="stylesheet" href="../css/sesion.css?v=202610061625">
+    <link rel="stylesheet" href="../css/perfil.css?v=202610061625">
     <title>Lumenova Cinema</title>
     <link rel="icon" type="image/png" href="../img/logo/lumenova.png">
 </head>
 <body>
     <header>
         <div class="site-header">
-            <a class="brand" href="#inicio" aria-label="Lumenova Cinema, inicio">
-                <img class="brand-mark" src="../img/logo/lumenova.png" alt="Logo de Lumenova Cinema" aria-hidden="true">
+            <a class="brand" href="../../backend/index.php" aria-label="Lumenova Cinema, inicio">
+                <span class="brand-mark" aria-hidden="true">LC</span>
                 <span class="brand-text">Lumenova<small>CINEMA</small></span>
             </a>
-            <nav class="main-nav" aria-label="Navegacion principal">
-                <a class="current" href="index.html">Inicio</a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Navegacion principal">
+                <a class="current" href="../../backend/index.php">Inicio</a>
             <div class="botones-cuenta">
                 <button type="button" onclick="location.href='login.html'">Iniciar sesión</button>
                 <button type="button" onclick="location.href='registro.html'">Registrarse</button>
@@ -66,16 +72,16 @@
                 <button type="submit" class="sesion-enviar">Crear cuenta</button>
             </form>
 
-            <p class="sesion-cambio">¿Ya tenés una cuenta? <a href="formulario.html">Iniciá sesión</a></p>
+            <p class="sesion-cambio">¿Ya tenés una cuenta? <a href="login.html">Iniciá sesión</a></p>
         </div>
     </main>
 
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a class="footer-logo" href="index.html">Lumenova Cinema</a>
-                <span>Mas que peliculas una nueva experiencia
-                <a class="footer-action" href="index.html#cartelera">Nuestra Cartelera<span aria-hidden="true">→</span></a>
+                <a class="footer-logo" href="../../backend/index.php">Lumenova Cinema</a>
+                <span>Mas que peliculas una nueva experiencia</span>
+                <a class="footer-action" href="../../backend/index.php#cartelera">Nuestra Cartelera<span aria-hidden="true">→</span></a>
                 
             </div>
             <div class="footer-column">
@@ -93,9 +99,9 @@
             </div>
             <div class="footer-column footer-links">
                 <h2><span class="footer-heading-icon icon-explore" aria-hidden="true"></span> Explorar</h2>
-                <a href="index.html">Inicio</a>
-                <a href="index.html#cartelera">Cartelera</a>
-                <a href="index.html#estrenos">Estrenos</a>
+                <a href="../../backend/index.php">Inicio</a>
+                <a href="../../backend/index.php#cartelera">Cartelera</a>
+                <a href="../../backend/index.php#estrenos">Estrenos</a>
                 <a href="promociones.html">Promos</a>
             </div>
         </div>
@@ -104,6 +110,43 @@
             <span>LumenovaCinemas · Sitio web de entretenimiento</span>
         </div>
     </footer>
-    <script src="../js/script.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+        const errorBox = document.getElementById('sesion-error');
+
+        if (error) {
+            errorBox.textContent = error;
+            errorBox.classList.add('visible');
+        }
+
+        const password = document.getElementById('password');
+        const password2 = document.getElementById('password2');
+        const passwordMismatch = 'Las contraseñas no coinciden.';
+
+        function validatePasswords() {
+            password2.setCustomValidity(
+                password2.value && password.value !== password2.value
+                    ? passwordMismatch
+                    : ''
+            );
+        }
+
+        password.addEventListener('input', validatePasswords);
+        password2.addEventListener('input', validatePasswords);
+        password2.addEventListener('invalid', () => {
+            if (password2.validity.customError) {
+                errorBox.textContent = passwordMismatch;
+                errorBox.classList.add('visible');
+            }
+        });
+        password2.addEventListener('input', () => {
+            if (password2.validity.valid && errorBox.textContent === passwordMismatch) {
+                errorBox.textContent = '';
+                errorBox.classList.remove('visible');
+            }
+        });
+    </script>
+    <script src="../js/script.js?v=202610061625"></script>
 </body>
 </html>

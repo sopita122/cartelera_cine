@@ -16,10 +16,49 @@ Laboratorio de Redes Informáticas
 - XAMPP
 - Visual Studio Code 
 
-### Integrantes
-- Martina Araujo
-- Thiago Goya
-- Sofia Salaberry
+# Estructura del proyecto
+<pre>
+cartelera_cine/
+│
+├── doc/
+│   ├── .drawio
+│   └── README.md
+│
+├── backend/
+│   ├── index.php
+│   ├── detalle-pelicula.php
+│   ├── datos-iniciales-cine.sql
+│   ├── registrar-compras.sql
+│   ├── conexion.php
+│   ├── login.php
+│   ├── logout.php
+│   ├── procesar.php
+│   └── sesion.php
+│
+└── frontend/
+    │
+    ├── css/
+    │   ├── style.css
+    │   └── detalle-pelicula.css
+    │
+    ├── html/
+    |   └── login.html
+    │   └── promociones.html
+    |   └── registro.html
+    │
+    ├── img/
+    │   ├── carrusel de imagenes/
+    │   ├── logo/
+    │   └── peliculas/
+    │
+    └── js/
+        └── script.js
+</pre>
+
+# Integrantes
+- Martina Araujo.
+- Thiago Goya.
+- Sofia Salaberry.
 
 ### Objetivo
 Nuestro objetivo es diseñar una página web similar a:

@@ -1,4 +1,4 @@
-/* Estilos del botón de perfil y del panel de configuración del usuario. */
+/* Estilos del botón de perfil y su menú. */
 .profile-menu {
 	margin-left: auto;
 	position: relative;
@@ -71,170 +71,35 @@
 }
 
 .profile-logout {
-	border-top: 1px solid #dce8ec;
 	color: #a1332a;
-	margin-top: 4px;
 }
 
-/* El diálogo evita navegar a otra página para modificar los datos personales. */
-.profile-dialog {
-	background: #fffaf2;
-	border: 0;
-	border-radius: 14px;
-	box-shadow: 0 20px 55px rgba(10, 30, 45, .35);
-	color: #183b56;
-	left: auto;
-	margin: 0;
-	max-width: 560px;
-	offset: auto;
-	padding: 0;
-	position: fixed;
-	right: 24px;
-	top: 27%;
-	transform: none;
-	width: min(560px, calc(100% - 32px));
-}
-
-.profile-dialog::backdrop {
-	background: rgba(7, 35, 55, .62);
-}
-
-.profile-form {
-	margin-left: auto;
-	padding: 28px;
-	width: 100%;
-}
-
-.profile-dialog-header {
-	align-items: flex-start;
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 22px;
-}
-
-.profile-kicker {
-	color: #6e9bb1;
-	font-size: 11px;
-	font-weight: 700;
-	letter-spacing: 1px;
-	margin-bottom: 4px;
-	text-transform: uppercase;
-}
-
-.profile-dialog h2 {
-	color: #16587b;
-	font-family: Georgia, serif;
-	font-size: 25px;
-}
-
-.profile-close {
-	background: transparent;
-	border: 0;
-	color: #16587b;
-	cursor: pointer;
-	font-size: 28px;
-	line-height: 1;
-}
-
-.profile-fields {
-	display: grid;
-	gap: 15px;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.profile-fields label {
-	color: #16587b;
-	display: flex;
-	flex-direction: column;
-	font-size: 12px;
-	font-weight: 700;
-	gap: 6px;
-}
-
-.profile-fields input {
-	border: 1px solid #cfd8e3;
-	border-radius: 7px;
-	font-size: 14px;
-	padding: 10px;
-	width: 100%;
-}
-
-.profile-fields input:focus {
-	border-color: #16587b;
-	outline: none;
-}
-
-.profile-field-wide {
-	grid-column: 1 / -1;
-}
-
-.profile-fields small {
-	font-weight: 400;
-}
-
-.profile-status {
-	color: #16587b;
-	font-size: 13px;
-	min-height: 20px;
-	padding-top: 15px;
-}
-
-.profile-dialog-actions {
-	display: flex;
-	gap: 10px;
-	justify-content: flex-end;
-	margin-top: 12px;
-}
-
-.profile-dialog-actions button {
-	border: 0;
-	border-radius: 7px;
-	cursor: pointer;
-	font-size: 13px;
-	font-weight: 700;
-	padding: 11px 16px;
-}
-
-.profile-cancel {
-	background: #e8f0f2;
-	color: #16587b;
-}
-
-.profile-save {
-	background: #16587b;
-	color: #ffffff;
-}
-
-@media (max-width: 720px) {
+@media (max-width: 900px) {
 	.profile-menu {
-		width: 100%;
+		margin-left: 10px;
+		width: auto;
 	}
 
 	.profile-button {
+		height: 42px;
 		justify-content: center;
-		width: 100%;
+		padding: 5px;
+		width: 42px;
 	}
 
-	.profile-panel {
-		position: static;
-		width: 100%;
+	.profile-name {
+		display: none;
 	}
 }
 
-@media (max-width: 520px) {
-	.profile-fields {
-		grid-template-columns: 1fr;
+@media (max-width: 720px) {
+	.profile-button {
+		justify-content: center;
 	}
 
-	.profile-field-wide {
-		grid-column: auto;
-	}
-
-	.profile-form {
-		padding: 22px 18px;
-	}
-
-	.profile-dialog-actions {
-		flex-direction: column-reverse;
+	.profile-panel {
+		position: absolute;
+		right: 0;
+		top: calc(100% + 8px);
 	}
 }

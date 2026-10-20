@@ -1,0 +1,335 @@
+.detalle-main {
+    margin: 2rem auto 4rem;
+    max-width: 1000px;
+}
+
+.detalle-volver {
+    color: #c8d9e6;
+    display: inline-block;
+    margin: 0 0 1rem;
+    text-decoration: none;
+}
+
+.detalle-volver:hover,
+.detalle-volver:focus-visible {
+    color: #fbbf24;
+}
+
+.detalle-ficha {
+    align-items: start;
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 14px;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(180px, 320px) minmax(0, 1fr);
+    overflow: hidden;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.detalle-portada {
+    border-radius: 10px;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.detalle-contenido h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin: 0 0 1rem;
+}
+
+.detalle-sinopsis {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.detalle-datos {
+    display: grid;
+    gap: 0.75rem 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 1.5rem 0;
+}
+
+.detalle-datos div {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    padding-bottom: 0.6rem;
+}
+
+.detalle-datos dt {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.detalle-datos dd {
+    margin: 0;
+}
+
+.detalle-compra,
+.detalle-login {
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+}
+
+.detalle-reserva {
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 14px;
+    margin-top: 1.5rem;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.detalle-reserva h2 {
+    margin-top: 0;
+}
+
+.detalle-funcion {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.detalle-funcion select {
+    background: #f8fafc;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    min-height: 40px;
+    max-width: 100%;
+    padding: 0.4rem 0.6rem;
+}
+
+.detalle-leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.detalle-leyenda > span {
+    align-items: center;
+    color: #cbd5e1;
+    display: inline-flex;
+    font-size: 0.85rem;
+    gap: 0.45rem;
+}
+
+.asiento-muestra {
+    background: #1f2937;
+    border: 1px solid #94a3b8;
+    border-radius: 5px 5px 9px 9px;
+    display: inline-block;
+    height: 17px;
+    width: 20px;
+}
+
+.asiento-muestra.seleccionado,
+.asiento-opcion input:checked + span {
+    background: #fbbf24;
+    border-color: #fbbf24;
+    color: #172033;
+}
+
+.asiento-muestra.ocupado,
+.asiento-opcion-ocupado > span,
+.asiento-opcion-ocupado {
+    background: #7f1d1d;
+    border-color: #b91c1c;
+    color: #fecaca;
+}
+
+.detalle-pantalla {
+    border-top: 3px solid #cbd5e1;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin: 1.5rem auto 1rem;
+    max-width: 520px;
+    padding-top: 0.5rem;
+    text-align: center;
+}
+
+.asientos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin: 0 auto;
+    max-width: 700px;
+    overflow-x: auto;
+    padding: 0.25rem;
+}
+
+.asiento-fila {
+    align-items: center;
+    display: flex;
+    gap: 0.55rem;
+    justify-content: center;
+    min-width: max-content;
+}
+
+.asiento-opcion {
+    flex: 0 0 48px;
+    position: relative;
+}
+
+.asiento-opcion input {
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.asiento-opcion > span,
+.asiento-opcion.asiento-opcion-ocupado {
+    align-items: center;
+    background: #1f2937;
+    border: 1px solid #64748b;
+    border-radius: 5px 5px 9px 9px;
+    color: #e2e8f0;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.75rem;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0.25rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.asientos-solo-lectura > .asiento-opcion {
+    align-items: center;
+    background: #1f2937;
+    border: 1px solid #64748b;
+    border-radius: 5px 5px 9px 9px;
+    color: #e2e8f0;
+    display: flex;
+    flex: 0 0 48px;
+    font-size: 0.75rem;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0.25rem;
+}
+
+.asientos-solo-lectura > .asiento-opcion-ocupado {
+    background: #7f1d1d;
+    border-color: #b91c1c;
+    color: #fecaca;
+}
+
+.asiento-opcion:not(.asiento-opcion-ocupado) > span:hover {
+    border-color: #fbbf24;
+}
+
+.asiento-opcion input:focus-visible + span {
+    outline: 2px solid #f8fafc;
+    outline-offset: 2px;
+}
+
+.asiento-opcion input:checked + span {
+    color: #172033;
+}
+
+.asiento-opcion input:disabled + span {
+    background: #7f1d1d;
+    border-color: #b91c1c;
+    color: #fecaca;
+    cursor: not-allowed;
+}
+
+.asiento-opcion-ocupado {
+    cursor: not-allowed;
+}
+
+.detalle-total {
+    color: #f8fafc;
+    font-weight: 700;
+    margin: 1.25rem 0;
+}
+
+.detalle-aclaracion,
+.detalle-aviso {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.detalle-compra label,
+.detalle-compra select {
+    display: block;
+}
+
+.detalle-compra select {
+    background: #f8fafc;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    margin: 0.5rem 0 0.9rem;
+    min-height: 40px;
+    padding: 0.4rem 0.6rem;
+    width: min(100%, 220px);
+}
+
+.detalle-compra button {
+    display: block;
+}
+
+.detalle-compra button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    transform: none;
+}
+
+.detalle-compra > p,
+.detalle-login > p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.detalle-enlace {
+    background: #fbbf24;
+    border-radius: 6px;
+    color: #172033;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+}
+
+.detalle-confirmacion,
+.detalle-alerta,
+.detalle-mensaje {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 8px;
+    line-height: 1.6;
+    margin: 1rem 0;
+    padding: 0.9rem 1rem;
+}
+
+.detalle-confirmacion {
+    border-color: #34d399;
+}
+
+.detalle-alerta {
+    border-color: #f87171;
+}
+
+.detalle-mensaje {
+    margin: 3rem auto;
+    max-width: 640px;
+    text-align: center;
+}
+
+@media (max-width: 650px) {
+    .detalle-ficha {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .detalle-portada {
+        margin: 0 auto;
+        max-height: 420px;
+    }
+}

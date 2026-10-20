@@ -5,9 +5,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
+    $peliculaRegreso = $_POST['volver_a_pelicula'] ?? '';
+    $funcionRegreso = filter_var(
+        $_POST['volver_a_funcion'] ?? null,
+        FILTER_VALIDATE_INT,
+        ['options' => ['min_range' => 1]]
+    );
+    $peliculaRegresoValida = preg_match('/^[a-z0-9-]+$/D', $peliculaRegreso) === 1;
+    $destinoExitoso = $peliculaRegresoValida
+        ? 'detalle-pelicula.php?pelicula=' . rawurlencode($peliculaRegreso)
+        : 'index.php';
+    if ($peliculaRegresoValida && $funcionRegreso !== false) {
+        $destinoExitoso .= '&funcion=' . $funcionRegreso;
+    }
+    $destinoError = '../frontend/html/login.html?error=Email%20o%20contrase%C3%B1a%20incorrectos.';
+    if ($peliculaRegresoValida) {
+        $destinoError .= '&pelicula=' . rawurlencode($peliculaRegreso);
+        if ($funcionRegreso !== false) {
+            $destinoError .= '&funcion=' . $funcionRegreso;
+        }
+    }
 
     if ($email === '' || $password === '') {
-        header("Location: ../frontend/html/login.html?error=Completá todos los campos.");
+        $destinoError = '../frontend/html/login.html?error=Complet%C3%A1%20todos%20los%20campos.';
+        if ($peliculaRegresoValida) {
+            $destinoError .= '&pelicula=' . rawurlencode($peliculaRegreso);
+            if ($funcionRegreso !== false) {
+                $destinoError .= '&funcion=' . $funcionRegreso;
+            }
+        }
+        header("Location: " . $destinoError);
         exit;
     }
 
@@ -20,12 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($usuario && password_verify($password, $usuario['contrasena'])) {
 
+        session_regenerate_id(true);
         $_SESSION['tipo'] = 'usuario';
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         $_SESSION['nombre'] = $usuario['nombre'];
         $_SESSION['email'] = $usuario['email'];
 
-        header("Location: ../frontend/html/index.html");
+        header("Location: " . $destinoExitoso);
         exit;
     }
     /* SI NO ES USUARIO, BUSCAMOS EN ADMINISTRADORES*/
@@ -37,21 +65,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($empleado && password_verify($password, $empleado['contraseña'])) {
 
+        session_regenerate_id(true);
         $_SESSION['tipo'] = 'empleado';
         $_SESSION['id_empleado'] = $empleado['id_empleado'];
         $_SESSION['nombre'] = $empleado['nombre'];
         $_SESSION['email'] = $empleado['email'];
 
-        // IMPORTANTE:
-        // El administrador NO va directamente al panel.
-        // También vuelve a la página principal.
-        header("Location: ../frontend/html/user.php");
+        header("Location: " . $destinoExitoso);
         exit;
     }
     /* SI NO COINCIDE CON NINGUNA TABLA*/
-    header("Location: ../frontend/html/login.html?error=Email o contraseña incorrectos.");
+    header("Location: " . $destinoError);
     exit;
 }
-header("Location: ../frontend/html/index.html");
+header("Location: index.php");
 exit;
 ?>
