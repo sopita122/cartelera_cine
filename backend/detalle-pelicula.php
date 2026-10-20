@@ -5,62 +5,62 @@ $catalogo = [
     'edward-scissorhands' => [
         'titulo' => 'Edward Scissorhands',
         'portada' => 'edward scisssorhands.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'Edward es un joven artificial que tiene tijeras en lugar de dedos. Cuando una mujer lo lleva a vivir a su casa, intenta adaptarse a la sociedad, pero su apariencia lo convierte en alguien diferente.',
     ],
     'frankenweenie' => [
         'titulo' => 'frankenweenie',
         'portada' => 'frankenweenie.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'Película basada en el cortometraje homónimo que el propio Burton realizó en 1984. El experimento científico que lleva a cabo el pequeño Victor para hacer resucitar su adorado perro Sparky, lo obligará a afrontar terribles situaciones cuyas consecuencias son imprevisibles. ',
     ],
-    'la-verdad-del-mal' => [
+    'El silencio de los corderos' => [
         'titulo' => 'El silencio de los corderos',
         'portada' => 'El silencio de los corderos.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'El FBI busca a "Buffalo Bill", un asesino en serie que mata a sus víctimas, todas adolescentes, después de prepararlas minuciosamente y arrancarles la piel. Para poder atraparlo recurren a Clarice Starling, una brillante licenciada universitaria, experta en conductas psicópatas, que aspira a formar parte del FBI. Siguiendo las instrucciones de su jefe, Jack Crawford, Clarice visita la cárcel de alta seguridad donde el gobierno mantiene encerrado al Dr. Hannibal Lecter, antiguo psicoanalista y asesino, dotado de una inteligencia superior a la normal. Su misión será intentar sacarle información sobre los patrones de conducta del asesino que están buscando.',
     ],
     'avengers-infinity-war' => [
         'titulo' => 'Avengers infinity war',
         'portada' => 'marvel_com.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'El todopoderoso Thanos ha despertado con la promesa de arrasar con todo a su paso, portando el Guantelete del Infinito, que le confiere un poder incalculable. Los únicos capaces de pararle los pies son los Vengadores y el resto de superhéroes de la galaxia, que deberán estar dispuestos a sacrificarlo todo por un bien mayor. Capitán América e Ironman deberán limar sus diferencias, Black Panther apoyará con sus tropas desde Wakanda, Thor y los Guardianes de la Galaxia e incluso Spider-Man se unirán antes de que los planes de devastación y ruina pongan fin al universo. ¿Serán capaces de frenar el avance del titán del caos?',
     ],
     'masacre-en-texas' => [
         'titulo' => 'masacre en texas',
         'portada' => 'masacre en texas.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'Secuela del film de Tobe Hooper (1974). El pueblo de Newt (Texas) se vengó de la familia Sawyer por haber ocultado los asesinatos cometidos por Jeb Sawyer, el maníaco de la motosierra, también conocido como “Cara de cuero”. Cuando la gente del pueblo, dirigida por Burt Hartman, quemó su granja, se dio por supuesto que toda la familia había muerto, pero el bebé de los Sawyer sobrevivió. Gavin y Arlene, dos de los vigilantes pueblerinos, se la llevaron en secreto y la criaron como si fuera su hija con el nombre de Heather. A los veinte años, cuando descubrió que había sido adoptada, un abogado la localizó para comunicarle que su abuela la había nombrado heredera de sus bienes.',
     ],
     'paprika' => [
         'titulo' => 'Paprika',
         'portada' => 'Paprika.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'La psiquiatra Atsuko Chiba ha desarrollado un método de terapia revolucionario denominado "PT", un prototipo de máquina experimental gracias a la cual es posible introducirse en la mente de los pacientes para tratar sus ansiedades. Pero uno de los modelos de PT es robado del laboratorio de la Dra. Atsuko, y comienzan a utilizarlo para invadir las mentes de sus creadores, destruyendo sus personalidades mientras duermen.',
     ],
     'piratas-del-caribe' => [
         'titulo' => 'Piratas del caribe',
         'portada' => 'Piratas del Caribe_ La maldición de la Perla Negra  (2003).jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'El aventurero capitán Jack Sparrow piratea en aguas caribeñas, pero su andanzas terminan cuando su enemigo, el Capitán Barbossa, después de robarle su barco, el Perla Negra, ataca la ciudad de Port Royal y secuestra a Elizabeth Swann, la hija del Gobernador. Will Turner, amigo de la infancia de Elizabeth, se une a Jack para rescatarla y recuperar el Perla Negra. Pero Barbossa y su tripulación son víctimas de un conjuro que los condena a vivir eternamente y a transformarse cada noche en esqueletos vivientes. El conjuro sólo puede romperse si devuelven una pieza de oro azteca y saldan una deuda de sangre. El rescate de la bella Elizabeth será una tarea difícil, pues la maldición es real y será difícil enfrentarse con quienes no pueden morir. ',
     ],
     'superpoli-de-centro-comercial' => [
         'titulo' => 'Superpoli de centro comercial',
         'portada' => 'Superpoli de centro comercial (2009) - tt1114740.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'Paul Blart (Kevin James) es un padre soltero del extrarradio que trata de ganarse la vida como guardia de seguridad en un gran centro comercial de Nueva Jersey. A pesar de que nadie toma su trabajo en serio, Paul considera que está al frente de la seguridad del recinto. Cuando un atraco cierra las puertas del centro comercial, el oficial de seguridad más extraordinario de Jersey tendrá que convertirse en un policía de verdad para poder salvar la situación.',
     ],
     'robot-salvaje' => [
         'titulo' => 'Robot Salvaje',
         'portada' => 'Robot Salvaje.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'Roz, un robot que queda varado en una isla, aprende a convivir con los animales y termina cuidando a un pequeño ganso, descubriendo el significado de la amistad y la familia.',
     ],
     'obsesion' => [
         'titulo' => 'Obsesión',
         'portada' => 'obsesion.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'El anhelo romántico desesperado de un chico por su amor platónico de toda la vida desencadena un siniestro hechizo: Niki se vuelve irracionalmente obsesiva hasta convertirse en la sombra de Bear. Una fantasía aparentemente inofensiva que se convertirá en una perturbadora pesadilla.',
     ],
     'michael' => [
         'titulo' => 'Michael Jackson',
         'portada' => 'Michael (2026).jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'El viaje de Michael Jackson más allá de la música, desde el descubrimiento de su extraordinario talento como líder de los Jackson Five hasta convertirse en una visionaria estrella cuya ambición creativa despertó un incansable afán por consagrarse como el mayor icono de la industria del entretenimiento.',
     ],
     'viernes-13' => [
         'titulo' => 'viernes 13',
         'portada' => 'viernes 13th.jpeg',
-        'sinopsis' => '',
+        'sinopsis' => 'Remake del clásico film de terror. A pesar de los consejos de la policía y de los lugareños, Clay se adentra en el espeluznante y legendario bosque de Crystal Lake para buscar a su hermana desaparecida. Cuenta con la ayuda de una joven que ha ido al bosque a pasar un fin de semana con un grupo de amigos. Lo que ignoran es que han entrado en el área de acción de un siniestro asesino: Jason Voorhees. ',
     ],
 ];
 
