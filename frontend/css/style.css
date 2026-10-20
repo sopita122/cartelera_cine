@@ -89,12 +89,10 @@ button:hover {
     align-items: center;
     border: 2px solid #f5eedd;
     border-radius: 50%;
-    color: #84b3ce;
-    display: flex;
-    font-size: 11px;
-    height: 36px;
-    justify-content: center;
-    width: 36px;
+    display: block;
+    height: 42px;
+    object-fit: cover;
+    width: 42px;
 }
 
 .brand-text {
