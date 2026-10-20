@@ -13,12 +13,12 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css?v=<?= filemtime(__DIR__ . '/../css/style.css') ?>">
-    <link rel="stylesheet" href="../css/perfil.css?v=<?= filemtime(__DIR__ . '/../css/perfil.css') ?>">
+    <link rel="stylesheet" href="../frontend/css/style.css?v=<?= filemtime(__DIR__ . '/../frontend/css/style.css') ?>">
+    <link rel="stylesheet" href="../frontend/css/perfil.css?v=<?= filemtime(__DIR__ . '/../frontend/css/perfil.css') ?>">
     <title>Lumenova Cinema</title>
-    <link rel="icon" type="image/png" href="../img/logo/lumenova.png">
+    <link rel="icon" type="image/png" href="../frontend/img/logo/lumenova.png">
 </head>
-<body id="inicio">
+<body id="inicio" data-session-url="sesion.php" data-logout-url="logout.php">
     <header>
         <div class="site-header">
             <a class="brand" href="#inicio" aria-label="Lumenova Cinema, inicio">
@@ -29,12 +29,12 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
                 <a class="current" href="#inicio">Inicio</a>
                 <a href="#cartelera">Cartelera</a>
                 <a href="#estrenos">Estrenos</a>
-                <a href="#promos">Promos</a>
+                <a href="../frontend/html/promociones.html">Promos</a>
                 <a href="#contacto">Contacto</a>
             <?php if (!$autenticado): ?>
             <div class="botones-cuenta">
-                <button type="button" onclick="location.href='login.html'">Iniciar sesión</button>
-                <button type="button" onclick="location.href='registro.html'">Registrarse</button>
+                <button type="button" onclick="location.href='../frontend/html/login.html'">Iniciar sesión</button>
+                <button type="button" onclick="location.href='../frontend/html/registro.html'">Registrarse</button>
             </div>
             <?php endif; ?>
             </nav>
@@ -54,6 +54,7 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
                 <span></span>
                 <span></span>
             </button>
+        </div>
     </header>
 
     <main>
@@ -61,14 +62,14 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
             <div class="carrusel-contenedor" aria-label="Carrusel de imágenes de películas">
                 <button class="carrusel-btn anterior" type="button" aria-label="Anterior" onclick="cambiarImagen(-1)">&#10094;</button>
                 <div class="carrusel-imagenes">
-                    <img class="carrusel-slide activa" src="../img/carrusel de imagenes/backrooms.jpeg" alt="Imagen 1">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/deadpool.jpeg" alt="Imagen 2">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/longlegs.jpeg" alt="Imagen 3">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/spider-man home coming.jpeg" alt="Imagen 4">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/LaOdisea.jpg" alt="Imagen 5">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/The Boys Wallpaper.jpeg" alt="Imagen 6">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/the texas chainsaw massacre.jpeg" alt="Imagen 7">
-                    <img class="carrusel-slide" src="../img/carrusel de imagenes/zootopia 2.jpeg" alt="Imagen 8">
+                    <img class="carrusel-slide activa" src="../frontend/img/carrusel de imagenes/backrooms.jpeg" alt="Imagen 1">
+                    <img class="carrusel-slide" src="../frontend/img/carrusel de imagenes/deadpool.jpeg" alt="Imagen 2">
+                    <img class="carrusel-slide" src="../frontend/img/carrusel de imagenes/longlegs.jpeg" alt="Imagen 3">
+                    <img class="carrusel-slide" src="../frontend/img/carrusel de imagenes/spider-man home coming.jpeg" alt="Imagen 4">
+                    <img class="carrusel-slide" src="../frontend/img/carrusel de imagenes/LaOdisea.jpg" alt="Imagen 5">
+                    <img class="carrusel-slide" src="../frontend/img/carrusel de imagenes/The Boys Wallpaper.jpeg" alt="Imagen 6">
+                    <img class="carrusel-slide" src="../frontend/img/carrusel de imagenes/the texas chainsaw massacre.jpeg" alt="Imagen 7">
+                    <img class="carrusel-slide" src="../frontend/img/carrusel de imagenes/zootopia 2.jpeg" alt="Imagen 8">
                 </div>
 
                 <div class="carrusel-puntos" aria-label="Indicadores del carrusel">
@@ -87,93 +88,93 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
             <div class="peliculas-container">
                 <h2>Películas en cartelera</h2>
                 <div class="peliculas-grid">
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/edward scisssorhands.jpeg" alt="edward scisssorhands">
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=edward-scissorhands" aria-label="Ver los detalles de Edward Scissorhands">
+                        <img src="../frontend/img/peliculas/edward scisssorhands.jpeg" alt="">
                         <div class="pelicula-info">
-                            <h3>edward scisssorhands</h3>
-                            <p></p>
+                            <h3>Edward Scissorhands</h3>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/frankenweenie.jpeg" alt="frankenweenie">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=frankenweenie" aria-label="Ver los detalles de Frankenweenie">
+                        <img src="../frontend/img/peliculas/frankenweenie.jpeg" alt="">
                         <div class="pelicula-info">
-                            <h3>frankenweenie</h3>
-                            <p></p>
+                            <h3>Frankenweenie</h3>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/La verdad del mal.jpeg" alt="La verdad del mal">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=la-verdad-del-mal" aria-label="Ver los detalles de La verdad del mal">
+                        <img src="../frontend/img/peliculas/La verdad del mal.jpeg" alt="">
                         <div class="pelicula-info">
                             <h3>La verdad del mal</h3>
-                            <p></p>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/marvel_com.jpeg" alt="Avengers infinity war">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=avengers-infinity-war" aria-label="Ver los detalles de Avengers Infinity War">
+                        <img src="../frontend/img/peliculas/marvel_com.jpeg" alt="">
                         <div class="pelicula-info">
-                            <h3> Avengers infinity war </h3>
-                            <p></p>
+                            <h3>Avengers Infinity War</h3>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/masacre en texas.jpeg" alt="masacre en texas">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=masacre-en-texas" aria-label="Ver los detalles de Masacre en Texas">
+                        <img src="../frontend/img/peliculas/masacre en texas.jpeg" alt="">
                         <div class="pelicula-info">
-                            <h3>masacre en texas</h3>
-                            <p></p>
+                            <h3>Masacre en Texas</h3>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/Paprika.jpeg" alt="Paprika">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=paprika" aria-label="Ver los detalles de Paprika">
+                        <img src="../frontend/img/peliculas/Paprika.jpeg" alt="">
                         <div class="pelicula-info">
                             <h3>Paprika</h3>
-                            <p></p>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/Piratas del Caribe_ La maldición de la Perla Negra  (2003).jpeg" alt="Piratas del caribe">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=piratas-del-caribe" aria-label="Ver los detalles de Piratas del Caribe">
+                        <img src="../frontend/img/peliculas/Piratas del Caribe_ La maldición de la Perla Negra  (2003).jpeg" alt="">
                         <div class="pelicula-info">
                             <h3>Piratas del caribe</h3>
-                            <p></p>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/Superpoli de centro comercial (2009) - tt1114740.jpeg" alt="Superpoli de centro comercial">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=superpoli-de-centro-comercial" aria-label="Ver los detalles de Superpoli de centro comercial">
+                        <img src="../frontend/img/peliculas/Superpoli de centro comercial (2009) - tt1114740.jpeg" alt="">
                         <div class="pelicula-info">
                             <h3>Superpoli de centro comercial</h3>
-                            <p></p>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
+                    </a>
                 </div>
 
                 <div class="peliculas-grid peliculas-extra oculto">
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/Robot Salvaje.jpeg" alt="Robot Salvaje">
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=robot-salvaje" aria-label="Ver los detalles de Robot Salvaje">
+                        <img src="../frontend/img/peliculas/Robot Salvaje.jpeg" alt="">
                         <div class="pelicula-info">
                             <h3>Robot Salvaje</h3>
-                            <p></p>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/obsesion.jpeg" alt="Obsesión">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=obsesion" aria-label="Ver los detalles de Obsesión">
+                        <img src="../frontend/img/peliculas/obsesion.jpeg" alt="">
                         <div class="pelicula-info">
                             <h3>Obsesión</h3>
-                            <p></p>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/Michael (2026).jpeg" alt="Michael Jackson">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=michael" aria-label="Ver los detalles de Michael Jackson">
+                        <img src="../frontend/img/peliculas/Michael (2026).jpeg" alt="">
                         <div class="pelicula-info">
                             <h3>Michael Jackson</h3>
-                            <p></p>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
-                    <article class="pelicula-card">
-                        <img src="../img/peliculas/viernes 13th.jpeg" alt="viernes 13th">
+                    </a>
+                    <a class="pelicula-card" href="detalle-pelicula.php?pelicula=viernes-13" aria-label="Ver los detalles de Viernes 13">
+                        <img src="../frontend/img/peliculas/viernes 13th.jpeg" alt="">
                         <div class="pelicula-info">
-                            <h3>viernes 13</h3>
-                            <p></p>
+                            <h3>Viernes 13</h3>
+                            <p>Consultá funciones y asientos disponibles</p>
                         </div>
-                    </article>
+                    </a>
                 </div>
 
                 <div class="expand-container">
@@ -186,11 +187,11 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
             <p></p>
         </section>
         <hr>
-    <footer class="site-footer">
+    <footer class="site-footer" id="contacto">
         <div class="footer-content">
             <div class="footer-brand">
                 <a class="footer-logo" href="index.php">Lumenova Cinema</a>
-                <span>Mas que peliculas una nueva experiencia
+                <span>Mas que peliculas una nueva experiencia</span>
                 <a class="footer-action" href="#cartelera">Nuestra Cartelera<span aria-hidden="true">→</span></a>
                 
             </div>
@@ -201,9 +202,9 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
             <div class="footer-column">
                 <h2><span class="fa fa-user-circle-o" aria-hidden="true"></span> Contactos</h2>
                 <div class="footer-socials">
-                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../img/logos/Instagram.png" alt=""><span>@LumenovaCinema</span></a>
-                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../img/logos/facebook.png" alt=""><span>@LumeCine</span></a>
-                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Mail"><img src="../img/logos/Gmail.png" alt=""><span>LumenovaCines@gmail.com</span></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../frontend/img/logos/Instagram.png" alt=""><span>@LumenovaCinema</span></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../frontend/img/logos/facebook.png" alt=""><span>@LumeCine</span></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Mail"><img src="../frontend/img/logos/Gmail.png" alt=""><span>LumenovaCines@gmail.com</span></a>
 
                 </div>
             </div>
@@ -212,7 +213,7 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
                 <a href="index.php">Inicio</a>
                 <a href="#cartelera">Cartelera</a>
                 <a href="#estrenos">Estrenos</a>
-                <a href="promociones.html">Promos</a>
+                <a href="../frontend/html/promociones.html">Promos</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -220,6 +221,6 @@ $inicialesPerfil = strtoupper(($inicialNombre[0] ?? 'U') . ($inicialApellido[0] 
             <span>LumenovaCinemas · Sitio web de entretenimiento</span>
         </div>
     </footer>
-    <script src="../js/script.js?v=<?= filemtime(__DIR__ . '/../js/script.js') ?>"></script>
+    <script src="../frontend/js/script.js?v=<?= filemtime(__DIR__ . '/../frontend/js/script.js') ?>"></script>
 </body>
 </html>

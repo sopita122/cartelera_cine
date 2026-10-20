@@ -52,7 +52,7 @@ try {
     $_SESSION['apellido'] = $apellido;
     $_SESSION['email'] = $email;
 
-    header("Location: ../frontend/html/index.php?bienvenida=1");
+    header("Location: index.php?bienvenida=1");
     exit;
 
 } catch (PDOException $e) {

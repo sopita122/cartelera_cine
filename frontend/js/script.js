@@ -130,18 +130,21 @@ function inicializarMenuHamburguesa() {
 // Consulta el estado de la sesión y adapta el menú de navegación al usuario actual.
 document.addEventListener("DOMContentLoaded", async () => {
 	const navigation = document.querySelector(".main-nav");
+	const existingProfileMenu = navigation
+		? getProfileMenu(navigation)
+		: document.querySelector(".site-header .profile-menu");
+
+	if (existingProfileMenu) {
+		bindProfileMenu(existingProfileMenu);
+	}
 
 	if (!navigation) {
 		return;
 	}
 
-	const existingProfileMenu = getProfileMenu(navigation);
-	if (existingProfileMenu) {
-		bindProfileMenu(existingProfileMenu);
-	}
-
 	try {
-		const response = await fetch("../../backend/sesion.php", {
+		const sessionUrl = document.body.dataset.sessionUrl || "../../backend/sesion.php";
+		const response = await fetch(sessionUrl, {
 			credentials: "same-origin",
 			headers: { Accept: "application/json" }
 		});
@@ -257,6 +260,6 @@ const bindProfileMenu = (profileMenu) => {
 
 	profileMenu.querySelector('[data-profile-action="logout"]').addEventListener("click", () => {
 		// El backend destruye la sesión y devuelve a la página de inicio.
-		window.location.href = "../../backend/logout.php";
+		window.location.href = document.body.dataset.logoutUrl || "../../backend/logout.php";
 	});
 };

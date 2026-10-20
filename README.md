@@ -59,6 +59,10 @@ cartelera_cine/
 │   └── README.md
 │
 ├── backend/
+│   ├── index.php
+│   ├── detalle-pelicula.php
+│   ├── datos-iniciales-cine.sql
+│   ├── registrar-compras.sql
 │   ├── conexion.php
 │   ├── login.php
 │   ├── logout.php
@@ -68,10 +72,13 @@ cartelera_cine/
 └── frontend/
     │
     ├── css/
-    │   └── style.css
+    │   ├── style.css
+    │   └── detalle-pelicula.css
     │
     ├── html/
-    │   └── index.php
+    |   └── login.html
+    │   └── promociones.html
+    |   └── registro.html
     │
     ├── img/
     │   ├── carrusel de imagenes/
@@ -81,6 +88,7 @@ cartelera_cine/
     └── js/
         └── script.js
 </pre>
+
 # Integrantes
 - Martina Araujo.
 - Thiago Goya.
