@@ -4,9 +4,9 @@ $host = "localhost";
 // entre "" despues del igual significa el nombre EXACTO de la base de datos a la que queremos conectar.
 $namedatabase = "cine";
 // username significa "usuario de base de datos" y que este igualado a root dice que actua con el usuario root de XAMPP.
-$username = "root";
+$username = "phpmyadmin";
 // password significa "contraseña de base de datos" y que este igualado a "" dice que actua con la contraseña vacia de XAMPP.
-$password = "";
+$password = "RedesInformaticas";
 // try significa intentar y catch significa capturar, es decir, intenta conectar a la base de datos y si no puede capturara el error
 try{
     // PDO significa "PHP Data Objects" y es una clase de PHP que permite conectarse a diferentes tipos de bases de datos, en este caso MySQL. Tenemos que poner los datos de antes para asegurar que todo coincida.
