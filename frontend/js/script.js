@@ -77,6 +77,7 @@ function inicializarPeliculasExtra() {
 
 document.addEventListener('DOMContentLoaded', () => {
     mostrarImagen(0);
+    inicializarMenuHamburguesa();
 
     document.querySelectorAll('.carrusel-punto').forEach((punto) => {
         punto.addEventListener('click', () => {
@@ -90,18 +91,60 @@ document.addEventListener('DOMContentLoaded', () => {
     iniciarCarruselAutomatico();
 });
 
+function inicializarMenuHamburguesa() {
+	const navigation = document.querySelector(".main-nav");
+	const toggle = document.querySelector(".nav-toggle");
+
+	if (!navigation || !toggle) {
+		return;
+	}
+
+	const setMenuOpen = (isOpen) => {
+		navigation.classList.toggle("is-open", isOpen);
+		toggle.setAttribute("aria-expanded", String(isOpen));
+		toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+	};
+
+	toggle.addEventListener("click", () => {
+		setMenuOpen(toggle.getAttribute("aria-expanded") !== "true");
+	});
+
+	navigation.querySelectorAll("a").forEach((link) => {
+		link.addEventListener("click", () => setMenuOpen(false));
+	});
+
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") {
+			setMenuOpen(false);
+		}
+	});
+
+	window.addEventListener("resize", () => {
+		if (window.innerWidth > 900) {
+			setMenuOpen(false);
+		}
+	});
+}
 
 // PERFIL DE USUARIO
 // Consulta el estado de la sesión y adapta el menú de navegación al usuario actual.
 document.addEventListener("DOMContentLoaded", async () => {
 	const navigation = document.querySelector(".main-nav");
+	const existingProfileMenu = navigation
+		? getProfileMenu(navigation)
+		: document.querySelector(".site-header .profile-menu");
+
+	if (existingProfileMenu) {
+		bindProfileMenu(existingProfileMenu);
+	}
 
 	if (!navigation) {
 		return;
 	}
 
 	try {
-		const response = await fetch("../../backend/sesion.php", {
+		const sessionUrl = document.body.dataset.sessionUrl || "../../backend/sesion.php";
+		const response = await fetch(sessionUrl, {
 			credentials: "same-origin",
 			headers: { Accept: "application/json" }
 		});
@@ -123,8 +166,33 @@ const getProfileInitials = (user) => {
 	return `${firstName}${lastName}`.toUpperCase() || "U";
 };
 
+const getProfileMenu = (navigation) => {
+	const siteHeader = navigation.closest(".site-header");
+	if (!siteHeader) {
+		return navigation.querySelector(".profile-menu");
+	}
+
+	const profileMenus = [...siteHeader.querySelectorAll(".profile-menu")];
+	const profileMenu = profileMenus.find((menu) => !navigation.contains(menu)) || profileMenus[0];
+
+	profileMenus.forEach((menu) => {
+		if (menu !== profileMenu) {
+			menu.remove();
+		}
+	});
+
+	const toggle = siteHeader.querySelector(".nav-toggle");
+	if (profileMenu && toggle && profileMenu.nextElementSibling !== toggle) {
+		toggle.before(profileMenu);
+	}
+
+	return profileMenu;
+};
+
 // Sustituye los enlaces de iniciar sesión y registrarse por el botón de perfil.
 const renderAuthenticatedMenu = (navigation, session) => {
+	navigation.querySelector(".botones-cuenta")?.remove();
+
 	navigation.querySelectorAll("a").forEach((link) => {
 		const href = link.getAttribute("href") || "";
 		const text = link.textContent.toLowerCase();
@@ -139,7 +207,11 @@ const renderAuthenticatedMenu = (navigation, session) => {
 		}
 	});
 
-	if (!navigation.querySelector(".profile-menu")) {
+	const siteHeader = navigation.closest(".site-header");
+	const existingProfileMenu = getProfileMenu(navigation);
+	if (existingProfileMenu) {
+		bindProfileMenu(existingProfileMenu);
+	} else {
 		const profileMenu = document.createElement("div");
 		profileMenu.className = "profile-menu";
 		profileMenu.innerHTML = `
@@ -148,11 +220,17 @@ const renderAuthenticatedMenu = (navigation, session) => {
 				<span class="profile-name">${escapeHtml((session.usuario || session).nombre || "Mi perfil")}</span>
 			</button>
 			<div class="profile-panel" id="profile-panel" hidden>
-				<button class="profile-option" type="button" data-profile-action="settings">Configuración</button>
 				<button class="profile-option profile-logout" type="button" data-profile-action="logout">Cerrar sesión</button>
 			</div>`;
-		navigation.append(profileMenu);
-		bindProfileMenu(profileMenu, session);
+		const toggle = siteHeader?.querySelector(".nav-toggle");
+		if (toggle) {
+			toggle.before(profileMenu);
+		} else if (siteHeader) {
+			siteHeader.append(profileMenu);
+		} else {
+			navigation.after(profileMenu);
+		}
+		bindProfileMenu(profileMenu);
 	}
 };
 
@@ -164,8 +242,13 @@ const escapeHtml = (value) => String(value)
 	.replaceAll('"', "&quot;")
 	.replaceAll("'", "&#039;");
 
-// Conecta el botón del avatar con el panel de opciones del perfil.
-const bindProfileMenu = (profileMenu, session) => {
+// Conecta el botón del perfil con el menú para cerrar sesión.
+const bindProfileMenu = (profileMenu) => {
+	if (profileMenu.dataset.bound === "true") {
+		return;
+	}
+	profileMenu.dataset.bound = "true";
+
 	const profileButton = profileMenu.querySelector(".profile-button");
 	const profilePanel = profileMenu.querySelector(".profile-panel");
 
@@ -175,107 +258,8 @@ const bindProfileMenu = (profileMenu, session) => {
 		profilePanel.hidden = isOpen;
 	});
 
-	profileMenu.querySelector('[data-profile-action="settings"]').addEventListener("click", () => {
-		openProfileDialog(session);
-		profilePanel.hidden = true;
-		profileButton.setAttribute("aria-expanded", "false");
-	});
-
 	profileMenu.querySelector('[data-profile-action="logout"]').addEventListener("click", () => {
 		// El backend destruye la sesión y devuelve a la página de inicio.
-		window.location.href = "../../backend/logout.php";
-	});
-};
-
-// Muestra un formulario reutilizable para modificar la información del usuario.
-const openProfileDialog = async (session) => {
-	let user = session.usuario || session;
-
-	try {
-		const response = await fetch("../../backend/perfil.php", {
-			credentials: "same-origin",
-			headers: { Accept: "application/json" }
-		});
-		const profileResponse = await response.json();
-		if (profileResponse.ok) {
-			user = profileResponse.usuario;
-		}
-	} catch (error) {
-		console.warn("No se pudo cargar la configuración del perfil.", error);
-	}
-
-	const dialog = document.createElement("dialog");
-	dialog.className = "profile-dialog";
-	dialog.style.left = "auto";
-	dialog.style.right = "24px";
-	dialog.style.top = "50%";
-	dialog.style.transform = "translateY(-50%)";
-	dialog.style.margin = "0";
-	dialog.innerHTML = `
-		<form class="profile-form" method="dialog">
-			<div class="profile-dialog-header">
-				<div>
-					<p class="profile-kicker">Mi cuenta</p>
-					<h2>Configuración del perfil</h2>
-				</div>
-				<button class="profile-close" type="button" aria-label="Cerrar configuración">×</button>
-			</div>
-			<div class="profile-fields">
-				<label>Nombre<input name="nombre" value="${escapeHtml(user.nombre || "")}" required></label>
-				<label>Apellido<input name="apellido" value="${escapeHtml(user.apellido || "")}" required></label>
-				<label>DNI<input name="dni" value="${escapeHtml(user.dni || "")}" required></label>
-				<label>Teléfono<input name="telefono" value="${escapeHtml(user.telefono || "")}" required></label>
-				<label class="profile-field-wide">Email<input name="email" type="email" value="${escapeHtml(user.email || "")}" required></label>
-				<label class="profile-field-wide">Nueva contraseña <small>(opcional)</small><input name="password" type="password" minlength="6" autocomplete="new-password"></label>
-			</div>
-			<p class="profile-status" role="status"></p>
-			<div class="profile-dialog-actions">
-				<button class="profile-cancel" type="button">Cancelar</button>
-				<button class="profile-save" type="submit">Guardar cambios</button>
-			</div>
-		</form>`;
-
-	document.body.append(dialog);
-	dialog.showModal();
-	bindProfileDialog(dialog);
-};
-
-// Envía los cambios al backend y actualiza el menú cuando se guardan correctamente.
-const bindProfileDialog = (dialog) => {
-	const form = dialog.querySelector(".profile-form");
-	const status = dialog.querySelector(".profile-status");
-
-	const closeDialog = () => {
-		dialog.close();
-		dialog.remove();
-	};
-
-	dialog.querySelector(".profile-close").addEventListener("click", closeDialog);
-	dialog.querySelector(".profile-cancel").addEventListener("click", closeDialog);
-
-	form.addEventListener("submit", async (event) => {
-		event.preventDefault();
-		status.textContent = "Guardando cambios...";
-
-		try {
-			const response = await fetch("../../backend/perfil.php", {
-				method: "POST",
-				body: new FormData(form),
-				credentials: "same-origin",
-				headers: { Accept: "application/json" }
-			});
-			const result = await response.json();
-
-			if (!result.ok) {
-				status.textContent = result.mensaje;
-				return;
-			}
-
-			status.textContent = result.mensaje;
-			setTimeout(closeDialog, 700);
-			window.location.reload();
-		} catch (error) {
-			status.textContent = "No se pudo conectar con el servidor.";
-		}
+		window.location.href = document.body.dataset.logoutUrl || "../../backend/logout.php";
 	});
 };
