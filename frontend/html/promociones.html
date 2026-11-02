@@ -1,12 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=../../backend/index.php">
-    <title>Promociones | Lumenova Cinema</title>
+    <title>Promociones</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../js/script.js">
 </head>
 <body>
-    <p>Redirigiendo a <a href="../../backend/index.php">la página principal</a>...</p>
+    <header>
+        <div class="site-header">
+            <a class="brand" href="#inicio" aria-label="Lumenova Cinema, inicio">
+                <span class="brand-mark" aria-hidden="true">LC</span>
+                <span class="brand-text">Lumenova<small>CINEMA</small></span>
+            </a>
+            <nav class="main-nav" aria-label="Navegacion principal">
+                <a class="current" href="#inicio">Inicio</a>
+                <a href="#cartelera">Cartelera</a>
+                <a href="#estrenos">Estrenos</a>
+                <a href="#promos">Promos</a>
+                <a href="#contacto">Contacto</a>
+            <div class="botones-cuenta">
+                <button type="button" onclick="location.href='login.html'">Iniciar sesión</button>
+                <button type="button" onclick="location.href='registro.html'">Registrarse</button>
+            </div>
+        </nav>
+    </header> 
+    
+</body>
+</html><section class="seccion-cartelera">
+            <div class="carrusel-contenedor" aria-label="Carrusel de imágenes de películas">
+                <button class="carrusel-btn anterior" type="button" aria-label="Anterior" onclick="cambiarImagen(-1)">&#10094;</button>
+                <div class="carrusel-imagenes">
+                    <img class="carrusel-slide activa" src="../img/carrusel de imagenes/backrooms.jpeg" alt="Imagen 1">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/deadpool.jpeg" alt="Imagen 2">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/longlegs.jpeg" alt="Imagen 3">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/spider-man home coming.jpeg" alt="Imagen 4">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/LaOdisea.jpg" alt="Imagen 5">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/The Boys Wallpaper.jpeg" alt="Imagen 6">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/the texas chainsaw massacre.jpeg" alt="Imagen 7">
+                    <img class="carrusel-slide" src="../img/carrusel de imagenes/zootopia 2.jpeg" alt="Imagen 8">
+                </div>
+
+                <div class="carrusel-puntos" aria-label="Indicadores del carrusel">
+                    <button class="carrusel-punto activo" type="button" data-index="0" aria-label="Ir a la imagen 1"></button>
+                    <button class="carrusel-punto" type="button" data-index="1" aria-label="Ir a la imagen 2"></button>
+                    <button class="carrusel-punto" type="button" data-index="2" aria-label="Ir a la imagen 3"></button>
+                    <button class="carrusel-punto" type="button" data-index="3" aria-label="Ir a la imagen 4"></button>
+                    <button class="carrusel-punto" type="button" data-index="4" aria-label="Ir a la imagen 5"></button>
+                    <button class="carrusel-punto" type="button" data-index="5" aria-label="Ir a la imagen 6"></button>
+                    <button class="carrusel-punto" type="button" data-index="6" aria-label="Ir a la imagen 7"></button>
+                    <button class="carrusel-punto" type="button" data-index="7" aria-label="Ir a la imagen 8"></button>
+                </div>
+                <button class="carrusel-btn siguiente" type="button" aria-label="Siguiente" onclick="cambiarImagen(1)">&#10095;</button>
+            </div>
 </body>
 </html>
